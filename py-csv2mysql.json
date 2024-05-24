@@ -1,0 +1,10 @@
+{
+    "user": "usuario",
+    "password": "senha",
+    "host": "localhost",
+    "database": "sua database",
+    "delimiter": ",",
+    "skip_header": false,
+    "csv_directory": "/tmp/csv"
+}
+
