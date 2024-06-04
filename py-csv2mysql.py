@@ -38,22 +38,19 @@ def validateFormatValue(value, col_type):
     if value == "\\N":
         return 'NULL'
     else:
-        return f"'{value}'"
-    """
-    try:
-        if 'int' in col_type:
-            return int(value)
-        elif 'float' in col_type or 'double' in col_type:
-            return float(value)
-        elif 'char' in col_type or 'text' in col_type or 'varchar' in col_type:
-            return f"'{value}'"
-        elif 'date' in col_type:
-            return f"'{value}'"
-        else:
-            return f"'{value}'"
-    except ValueError:
-        return 'NULL'
-    """
+        try:
+            if 'int' in col_type:
+                return f"'{value}'"
+            elif 'float' in col_type or 'double' in col_type:
+                return f"'{value}'"
+            elif 'char' in col_type or 'text' in col_type or 'varchar' in col_type:
+                return f"'{value}'"
+            elif 'date' in col_type:
+                return f"'{value}'"
+            else:
+                return f"'{value}'"
+        except ValueError:
+            return 'NULL'
 
 def insertDataIntoTable(db, table_name, columns, row):
     col_names = ', '.join(columns[0])
